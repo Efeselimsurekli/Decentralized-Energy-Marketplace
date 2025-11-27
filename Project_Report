@@ -44,3 +44,6 @@ Bu proje süresince aşağıdaki konularda pratik deneyim kazanılmıştır:
 * Yetkilendirme Mekanizması: Bir kontratın, kullanıcının cüzdanından para çekebilmesi için gereken "approve" ve "transferFrom" mantığı kavrandı.
 * Geliştirme Araçları: Remix IDE ile derleme, Ganache ile yerel ağ yönetimi ve MetaMask ile cüzdan işlemleri konusunda yetkinlik kazanıldı.
 * Hata Ayıklama: Blokzincir işlemlerinde karşılaşılan RPC hataları, nonce sorunları ve gas limiti yönetimi konularında problem çözme yeteneği geliştirildi.
+
+* Proje Kapsamı Notu: Proje geliştirme sürecinde temel ERC-20 fonksiyonlarının ve Mint/Burn mekanizmasının (Bonus 1) kararlı çalışmasına odaklanılmıştır.
+Bu nedenle "Transferlerden %1 vergi kesintisi" (Bonus 2) özelliği, sistemin stabilitesini ve test süreçlerini karmaşıklaştırmamak adına bu sürüme dahil edilmemiştir.
