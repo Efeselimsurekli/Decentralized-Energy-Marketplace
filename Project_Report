@@ -1,0 +1,46 @@
+BIL427 – Blockchain Teknolojileri ve Uygulamaları
+HW3: ERC-20 Token Geliştirme ve Enerji Transferi dApp Raporu
+----------------------------------------------------------------
+
+Öğrenci Adı Soyadı: Efe Selim Sürekli
+Öğrenci Numarası: 231101030
+GitHub Repo Linki: https://github.com/Efeselimsurekli/Decentralized-Energy-Marketplace
+
+----------------------------------------------------------------
+
+1. PROJE ÖZETİ
+Bu proje kapsamında, Ethereum blokzinciri üzerinde çalışan merkeziyetsiz bir "Enerji Ticaret Pazarı" (Decentralized Energy Marketplace) geliştirilmiştir. Projenin amacı, kullanıcıların özel bir ERC-20 tokenı (ENG) kullanarak, enerji üreticilerinden güvenli ve şeffaf bir şekilde enerji satın alabilmesini sağlamaktır. Sistem; Akıllı Kontratlar (Solidity), Frontend Arayüzü (React.js) ve Yerel Blokzincir Ağı (Ganache) olmak üzere üç katmandan oluşmaktadır.
+
+2. TOKEN BİLGİLERİ (TOKENOMICS)
+Projede kullanılan kripto para birimi, endüstri standardı olan OpenZeppelin kütüphanesi temel alınarak oluşturulmuştur.
+
+* Token İsmi: EnergyToken
+* Token Sembolü: ENG
+* Toplam Arz (Initial Supply): 1.000.000 (1 Milyon)
+* Ondalık (Decimals): 18
+
+3. KONTRAT ÖZELLİKLERİ VE MİMARİSİ
+
+A. MyEnergyToken.sol (Token Kontratı):
+Standart ERC-20 fonksiyonlarını (transfer, approve, balanceOf) barındırır. "Ownable" yapısı ile yetkilendirme yönetilir.
+* Bonus Görev 1 (Mint & Burn): Proje gereksinimlerine ek olarak; sadece kontrat sahibinin (Owner) yeni token basabileceği "mint" fonksiyonu ve her kullanıcının kendi tokenını yok edebileceği "burn" fonksiyonu eklenmiştir.
+
+B. EnergyShare.sol (Enerji Paylaşım Kontratı):
+Enerji alışverişini yöneten kontrattır.
+* transferEnergy Fonksiyonu: Kullanıcı bu fonksiyonu çağırdığında, sistem tokenı tüketiciden alıp üreticiye aktarır.
+* Güvenlik (Approve-TransferFrom): ERC-20 güvenlik standartları gereği, işlem öncesinde kullanıcının "approve" (harcama izni) vermesi zorunlu tutulmuştur.
+* Event Logging: İşlemler blokzincire "EnergyTransferred" eventi ile kaydedilir.
+
+4. FRONTEND VE WEB3 ENTEGRASYONU
+Kullanıcıların sistemle etkileşime geçebilmesi için React.js ve Ethers.js kullanılarak bir arayüz geliştirilmiştir.
+* Cüzdan Bağlantısı: MetaMask entegrasyonu ile hesap adresi ve anlık bakiye görüntülenir.
+* İşlem Akışı: Kullanıcı arayüz üzerinden sırasıyla "Onay Verme" (Approve) ve "Satın Alma" (Transfer) işlemlerini gerçekleştirir.
+
+5. ÖDEVDE EDİNİLEN BECERİLER
+Bu proje süresince aşağıdaki konularda pratik deneyim kazanılmıştır:
+
+* ERC-20 Token Standardı: Standart bir tokenın yapısı, fonksiyonları ve güvenli transfer mekanizmaları öğrenildi.
+* Akıllı Kontrat Etkileşimi: Frontend (React) ile Blockchain (Solidity) arasındaki iletişimin Ethers.js kütüphanesi ile nasıl sağlandığı deneyimlendi.
+* Yetkilendirme Mekanizması: Bir kontratın, kullanıcının cüzdanından para çekebilmesi için gereken "approve" ve "transferFrom" mantığı kavrandı.
+* Geliştirme Araçları: Remix IDE ile derleme, Ganache ile yerel ağ yönetimi ve MetaMask ile cüzdan işlemleri konusunda yetkinlik kazanıldı.
+* Hata Ayıklama: Blokzincir işlemlerinde karşılaşılan RPC hataları, nonce sorunları ve gas limiti yönetimi konularında problem çözme yeteneği geliştirildi.
